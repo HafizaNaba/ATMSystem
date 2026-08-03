@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+   <div id="main">
+<h1>  ATM  SYSTEM</h1>
+<input type="number" id="amount" placeholder="Enter amount">
+<button onclick="deposit()">Deposit</button>
+<button onclick="withdraw()">Withdraw</button>
+<button onclick="checkBalance()">Check Balance</button>
+<button onclick="clearAmount()">Clear</button>
+
+
+<h3 id="deposited"></h3>
+<h3 id="balance"></h3>
+
+
+   </div>
+
+
+   <script>
+    
+   let balance = 5000;
+
+   function deposit(){
+    let amount =  Number(document.getElementById("amount").value);
+    balance = balance + amount;
+    document.getElementById('deposited').innerText = "Amount Deposited : " + amount;
+    document.getElementById('balance').innerText = "Current Balance : " + balance;
+
+   }
+
+
+   function withdraw(){
+    let amount =  Number(document.getElementById("amount").value);
+
+if(amount <= balance){
+    balance = balance - amount;
+
+       document.getElementById('deposited').innerText = "Amount Withdraw : " + amount;
+    document.getElementById('balance').innerText = "Current Balance : " + balance;
+
+} else{
+    alert("Sorry ! Not enough balance");
+}
+document.getElementById('amount').value = "";
+
+   }
+
+
+   function checkBalance(){
+    document.getElementById('balance').innerText = "Current Balance : " + balance;
+   }
+
+   function clearAmount(){
+    document.getElementById('amount').value = "";
+     document.getElementById('balance').innerText = "";
+      document.getElementById('deposited').innerText = "";
+       }
+   </script>
+ 
+</body>
+</html>
